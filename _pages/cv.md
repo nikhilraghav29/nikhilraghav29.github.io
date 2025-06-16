@@ -11,26 +11,11 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
-
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
-
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Ph.D in Computer Science, Institute for Advancing Intelligence (IAI), TCG CREST & Department of Computer Science, RKMVERI University, 2022 – Present
+    * Thesis: *Advances in Speaker Diarization*  
+    * Advisors: Prof. Md Sahidullah and Swami Punyeshwarananda (earlier Prof. Vikas Reddy) 
+* M.Sc. in Applied Mathematics, Indian Institute of Technology (IIT) Mandi, 2017 – 2019 
+* B.Sc. (Hons) in Mathematics, Dyal Singh College, University of Delhi, 2013 – 2016
   
 Skills
 ======
@@ -61,4 +46,7 @@ Teaching
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Session Chair, ICASSP 2025  
+* Peer Reviewer: IEEE Transactions on Multimedia, Computer Speech & Language  
+* Educational Content Creator – [VigyanBharat YouTube Channel](https://www.youtube.com/@VigyanBharat)  
+* IEEE Student Member since 2024  
