@@ -9,7 +9,7 @@ redirect_from:
 
 Welcome! I'm **Nikhil Raghav**, a PhD student in Computer Science affiliated with the [Institute for Advancing Intelligence (IAI), TCG CREST](https://www.tcgcrest.org/iai) and the [Department of Computer Science, RKMVERI University](https://cs.rkmvu.ac.in/), India. My research is focused on **speaker diarization**, spanning both offline and streaming settings, and explores a rich intersection of **deep learning**, **graph-based learning**, and **unsupervised clustering techniques**.
 
-Under the guidance of **Md Sahidullah** and **Swami Punyeshwarananda (formerly Prof. Vikas Reddy)**, I am developing self-tuning spectral clustering approaches and adaptive algorithms to enhance the robustness and accuracy of diarization systems.
+Under the guidance of **Md Sahidullah** and **Swami Punyeshwarananda (formerly Vikas Reddy)**, I am developing self-tuning spectral clustering approaches and adaptive algorithms to enhance the robustness and accuracy of diarization systems.
 
 ---
 
@@ -18,7 +18,7 @@ Under the guidance of **Md Sahidullah** and **Swami Punyeshwarananda (formerly P
 - Speaker Diarization
 - Deep and classical clustering techniques
 - Graph-based learning for speech applications
-- Representation learning
+- Representation learnin
 - Speech foundation models
 
 ---
