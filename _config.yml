@@ -22,7 +22,7 @@ repository               : "nikhilraghav29/nikhilraghav29.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "images/profile.png"
   name             : "Nikhil Raghav"
   pronouns         : # example: "she/her"  
   bio              : "PhD Candidate | Institute for Advancing Intelligence (IAI), TCG CREST | Speaker Diarization | Machine Learning for Speech"
