@@ -25,9 +25,9 @@ author:
   avatar           : "images/profile.jpg"
   name             : "Nikhil Raghav"
   pronouns         : # example: "she/her"  
-  bio              : "PhD Candidate | Institute for Advancing Intelligence (IAI), TCG CREST | Speaker Diarization | Machine Learning for Speech"
+  bio              : "PhD Candidate | Institute for Advancing Intelligence (IAI), TCG CREST | Speaker Diarization"
   location         : "Kolkata, India"
-  employer         : "Institute for Advancing Intelligence (IAI), TCG CREST"
+  employer         : "TCG CREST"
   uri              : 
   email            : "nikhil.raghav.92@tcgcrest.org"
 
