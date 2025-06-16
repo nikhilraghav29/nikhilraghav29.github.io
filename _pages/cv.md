@@ -49,4 +49,7 @@ Service and leadership
 * Session Chair, ICASSP 2025  
 * Peer Reviewer: IEEE Transactions on Multimedia, Computer Speech & Language  
 * Educational Content Creator – [VigyanBharat YouTube Channel](https://www.youtube.com/@VigyanBharat)  
-* IEEE Student Member since 2024  
+* IEEE Student Member since 2024
+
+[Download CV (PDF)](/files/Nikhil_Raghav_CV.pdf)
+
