@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- What search engines and link previews (LinkedIn, WhatsApp) show -->
+  <title>Nikhil Raghav | Speaker diarization and speech AI</title>
+  <meta name="description" content="Nikhil Raghav is a PhD scholar in computer science at TCG CREST, Kolkata, working on speaker diarization, spectral clustering and conversational speech AI.">
+  <meta name="author" content="Nikhil Raghav">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nikhil Raghav | Speaker diarization and speech AI">
+  <meta property="og:description" content="PhD scholar in computer science at TCG CREST, Kolkata. Research on speaker diarization, spectral clustering and conversational speech AI.">
+  <meta property="og:url" content="https://nikhilraghav29.github.io/">
+  <meta property="og:image" content="https://nikhilraghav29.github.io/photo.jpg">
+
+  <!-- Structured data: helps Google connect this page to your Scholar and GitHub profiles -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nikhil Raghav",
+    "url": "https://nikhilraghav29.github.io/",
+    "jobTitle": "PhD Scholar in Computer Science",
+    "affiliation": { "@type": "Organization", "name": "Institute for Advancing Intelligence, TCG CREST" },
+    "knowsAbout": ["Speaker diarization", "Spectral clustering", "Speech processing", "Deep learning"],
+    "sameAs": [
+      "https://github.com/nikhilraghav29",
+      "https://scholar.google.com/citations?user=0Fv67UMAAAAJ&hl=en",
+      "https://www.youtube.com/@VigyanBharatAI"
+    ]
+  }
+  </script>
+
+  <!-- Browser-tab icon: a blue square with "NR". It is drawn right here as a tiny SVG, so there is no extra file to upload. -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='28' fill='white'%3ENR%3C/text%3E%3C/svg%3E">
+
+  <!-- Font: Google Sans for all text. To try another font, change the family name here and in --font below. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    /* ---------- Design tokens: change a colour or font here and it changes everywhere ---------- */
+    :root {
+      color-scheme: light;
+      --paper: #ffffff;   /* page background: plain white, as on Desh Raj's page */
+      --wash:  #f8fafc;   /* very light grey for the footer and photo placeholder */
+      --ink:   #1e293b;   /* main text */
+      --muted: #64748b;   /* dates, secondary text */
+      --rule:  #e2e8f0;   /* thin dividing lines */
+      --spk-a: #2563eb;   /* speaker A, also the link colour */
+      --spk-b: #f59e0b;   /* speaker B */
+      --spk-c: #2e9c8f;   /* speaker C */
+      --font: "Google Sans", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;   /* the page font */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font);
+      font-size: 1rem;      /* 16px body text, as on Dr. Sahidullah's page */
+      line-height: 1.5;
+    }
+    a { color: var(--spk-a); text-decoration: none; }                       /* links are plain blue ... */
+    a:hover { text-decoration: underline; text-underline-offset: 0.18em; }   /* ... and underline when the mouse is over them */
+    p, li { text-wrap: pretty; }   /* asks the browser not to leave one word alone on the last line */
+    :focus-visible { outline: 2px solid var(--spk-a); outline-offset: 3px; border-radius: 2px; }
+    p { margin: 0 0 1em; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }   /* the page draws its own bullets and numbers */
+
+    .wrap { max-width: 65rem; margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2.5rem); }
+
+    /* ---------- Sticky header with the section links ---------- */
+    .top {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255, 255, 255, 0.95);   /* white, slightly see-through */
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .top .wrap { max-width: 80rem; }   /* header is a little wider than the text, so all section links fit on one line */
+    .top-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 3.5rem; }
+    .brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+    .nav { display: flex; gap: 1.25rem; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      font-family: var(--font); font-size: 0.875rem; font-weight: 600;   /* header links: 14px, semi-bold */
+      color: var(--muted); text-decoration: none;
+      padding-block: 0.35rem; border-bottom: 2px solid transparent;
+    }
+    .nav a:hover { color: var(--ink); }
+    .nav a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--spk-a); }
+
+    /* ---------- Top of the page: centred photo, name, short colour bar, role, links (Desh Raj style) ---------- */
+    .hero { padding-block: clamp(2.5rem, 6vw, 3.5rem) clamp(2rem, 5vw, 2.75rem); text-align: center; }
+    .hero-head { display: flex; flex-direction: column; align-items: center; }
+    .portrait, .initials { width: 7.5rem; aspect-ratio: 1; border-radius: 50%; }
+    .portrait { object-fit: cover; display: block; }
+    .initials {
+      display: grid; place-items: center;
+      background: var(--wash); color: var(--muted);
+      font-size: 2rem; font-weight: 600; letter-spacing: 0.04em;
+    }
+    .portrait[hidden], .initials[hidden] { display: none; }
+    h1 { margin: 1.1rem 0 0; font-size: clamp(2rem, 6vw, 2.5rem); line-height: 1.2; font-weight: 700; letter-spacing: -0.03em; }   /* name: 40px, bold */
+    .accent-bar { display: block; width: 60px; height: 3px; margin: 0.9rem auto 0; border-radius: 4px; background: linear-gradient(90deg, var(--spk-a), var(--spk-b)); }
+    .role { margin: 0.9rem 0 0; font-size: clamp(1.05rem, 3.4vw, 1.25rem); font-weight: 400; color: var(--ink); }   /* 20px */
+    .lede { margin: 1.25rem auto 0; max-width: 36rem; font-size: 1.0625rem; line-height: 1.55; color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.4rem; margin-top: 1.25rem; font-size: 0.95rem; font-weight: 500; }
+    /* Each link is a small icon followed by its label */
+    .links a { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--ink); text-decoration: none; }
+    .links a:hover { color: var(--spk-a); text-decoration: none; }
+    .links .ico { width: 1.05em; height: 1.05em; flex: none; color: var(--spk-a); }
+    #contact .links { justify-content: flex-start; }   /* in the Contact section the links line up with the text */
+
+    /* ---------- The waveform animation under the links (drawn by the script at the bottom of this file) ---------- */
+    .diar { display: block; width: 100%; max-width: 43rem; height: 64px; margin: 1.5rem auto 0; }
+
+    /* ---------- Sections: one narrow centred column (about 690px wide), heading above content ---------- */
+    main section > .wrap { max-width: 43rem; padding-inline: 1rem; }
+    main section { padding-bottom: clamp(2.25rem, 5vw, 3.25rem); scroll-margin-top: 3.5rem; }
+    /* the thin line above each section: drawn inside the text column, so it is exactly as wide as the text */
+    main section > .wrap::before { content: ""; display: block; border-top: 1px solid var(--rule); margin-bottom: clamp(2.25rem, 5vw, 3.25rem); }
+    h2 { margin: 0 0 1rem; font-size: clamp(1.4rem, 4vw, 1.625rem); line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; }   /* section titles: 26px, bold */
+    h3 { margin: 2rem 0 0.75rem; font-family: var(--font); font-size: 1.02rem; font-weight: 700; color: var(--ink); letter-spacing: -0.035em; }   /* group titles: ~16px, bold */
+    h3:first-child { margin-top: 0; }
+    .body { max-width: none; }
+    .body > :last-child { margin-bottom: 0; }
+
+    /* Lists of dated things (experience, AI challenges, education) */
+    .dated > li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 1rem; padding-block: 0.6rem; }
+    .dated > li + li { border-top: 1px solid var(--rule); }
+    .when { font-family: var(--font); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.2rem; }
+    .dated strong, .pubs strong.t { font-weight: 600; }
+    .dated p { margin: 0.25rem 0 0; }
+    .small { font-size: 0.96rem; color: var(--muted); }
+
+    /* Publications */
+    /* Each list numbers itself (1, 2, 3 ...) using a CSS counter, so adding a paper never means renumbering by hand */
+    .pubs { counter-reset: pub; }
+    .pubs > li { padding-block: 0.75rem; padding-left: 2rem; position: relative; counter-increment: pub; }
+    .pubs > li::before {
+      content: counter(pub) ".";
+      position: absolute; left: 0; top: 0.75rem;
+      font-family: var(--font); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums;
+    }
+    h3 .n { font-weight: 400; }   /* the "(3)" count after each group heading, filled in by the script */
+    .pubs > li + li { border-top: 1px solid var(--rule); }
+    .pubs .t { display: block; line-height: 1.4; }
+    .pubs .au, .pubs .ve { display: block; font-size: 0.96rem; color: var(--muted); line-height: 1.5; }
+    .pubs .au b { color: var(--ink); font-weight: 600; }
+    .pubs .ve a { font-family: var(--font); font-size: 0.85rem; font-weight: 500; margin-left: 0.4rem; white-space: nowrap; }
+
+    /* Plain bulleted lists inside sections */
+    .plain > li { position: relative; padding-left: 1.1rem; margin-bottom: 0.5rem; }
+    .plain > li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 5px; height: 5px; border-radius: 50%; background: var(--muted); }
+
+    footer { background: var(--wash); border-top: 1px solid var(--rule); padding-block: 2rem 2.5rem; text-align: center; font-family: var(--font); font-size: 0.85rem; color: var(--muted); }
+    .foot { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+    .foot a { color: var(--muted); text-decoration: underline; text-underline-offset: 0.18em; }
+    .foot a:hover { color: var(--ink); }
+
+    @media (max-width: 72rem) {
+      .top-inner { flex-direction: column; align-items: flex-start; gap: 0.1rem; padding-block: 0.55rem 0.25rem; }
+      /* the header links scroll sideways here; the right edge fades out to hint that there are more */
+      .nav { width: 100%; padding-right: 2rem; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 2.5rem), transparent); }
+      main section { scroll-margin-top: 5.5rem; }
+    }
+    @media (max-width: 30rem) {
+      .links { gap: 0.15rem 1.1rem; }
+      .links a { padding-block: 0.6rem; }   /* taller tap area for fingers */
+      .dated > li { grid-template-columns: 1fr; gap: 0; }
+    }
+    /* People who switch off animations in their system settings get a still page */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Icon definitions. Each <symbol> is drawn once here and reused by <use href="#..."> in the links.
+     They are part of this file, so they show up even when outside icon libraries are blocked. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></symbol>
+</svg>
+
+<!-- ============================ HEADER (section links) ============================ -->
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#top">Nikhil Raghav</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#challenges">AI Challenges</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#outreach">Outreach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================ HERO ============================ -->
+  <div class="wrap hero">
+    <div class="hero-head">
+      <!-- Your photo is stored inside this file (the long data:image text), so it always loads. photo.jpg is kept only for link previews on LinkedIn and WhatsApp. -->
+      <img class="portrait" src="data:image/jpeg;base64,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" alt="Portrait of Nikhil Raghav" width="136" height="136"
+           onerror="this.hidden = true; this.nextElementSibling.hidden = false;">
+      <span class="initials" aria-hidden="true" hidden>NR</span>
+      <h1>Hi, I'm Nikhil</h1>
+      <span class="accent-bar" aria-hidden="true"></span>   <!-- the short blue-to-amber line under the name -->
+      <p class="role">PhD scholar in CS, TCG CREST</p>
+    </div>
+
+    <div class="links">
+      <a href="mailto:raghav.nikhil29@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Email</a>
+      <!-- The CV link opens the PDF on your Google Drive. To change it, replace the address in both CV links. -->
+      <a href="https://drive.google.com/file/d/1f6TY5CWUwULyFHLIvMq1fwQjVlboNgd0/view?usp=sharing" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-file"/></svg>CV</a>
+      <a href="https://scholar.google.com/citations?user=0Fv67UMAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg>Scholar</a>
+      <a href="https://github.com/nikhilraghav29" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+      <a href="https://www.linkedin.com/in/nikhilraghav-" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+    </div>
+
+    <!-- The waveform animation: one conversation, coloured by speaker. It is decoration, so screen readers skip it (aria-hidden). -->
+    <canvas id="diar" class="diar" aria-hidden="true"></canvas>
+
+  </div>
+
+  <!-- ============================ ABOUT ============================ -->
+  <section id="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <div class="body">
+        <p>I'm a PhD scholar in computer science at the Institute for Advancing Intelligence, TCG CREST, working at the intersection of deep learning, signal processing and conversational AI. My research focuses on building robust speaker diarization systems, a foundational capability for modern conversational AI systems.</p>
+        <p>I am jointly supervised by Swami Punyeshwarananda and Dr. Md Sahidullah.</p>
+        <p>By training I am an applied mathematician, with an M.Sc. from IIT Mandi and a B.Sc. (Hons.) in Mathematics from the University of Delhi. During my master's, I was a semester exchange student at TU Dresden.</p>
+        <p>Beyond research, I practise yoga, play soccer and badminton, and make educational content for the Vigyan Bharat YouTube channel on mathematics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ RESEARCH ============================ -->
+  <section id="research">
+    <div class="wrap">
+      <h2>Research interests</h2>
+      <div class="body">
+        <!-- One <li> per interest. Copy a line to add another. -->
+        <ul class="plain">
+          <li>Speaker diarization</li>
+          <li>Deep learning for speech and audio</li>
+          <li>Clustering algorithms</li>
+          <li>Causal inference</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ EDUCATION ============================ -->
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <div class="body">
+        <!-- One bullet per degree: degree, institute (year completed). Newest first. -->
+        <ul class="plain">
+          <li><strong>PhD in Computer Science</strong>, TCG CREST, Kolkata&nbsp;(2022&nbsp;–&nbsp;present)</li>
+          <li><strong>M.Sc. in Applied Mathematics</strong>, Indian Institute of Technology Mandi&nbsp;(2020)</li>
+          <li><strong>B.Sc. (Hons.) in Mathematics</strong>, University of Delhi&nbsp;(2016)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ EXPERIENCE (newest first) ============================ -->
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="body">
+        <!-- One bullet per role: role, place (years). Newest first. -->
+        <ul class="plain">
+          <li><strong>Project Intern</strong>, Indian Institute of Technology Mandi&nbsp;(2020)</li>
+          <li><strong>Exchange Student, DAAD Scholar</strong>, Technische Universit&auml;t Dresden, Germany&nbsp;(2018&nbsp;–&nbsp;2019)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PUBLICATIONS ============================ -->
+  <section id="publications">
+    <div class="wrap">
+      <h2>Publications</h2>
+      <div class="body">
+
+        <h3>Conference papers <span class="n"></span></h3>
+        <ol class="pubs">
+          <li>
+            <strong class="t">Self-Tuning Spectral Clustering for Speaker Diarization</strong>
+            <span class="au"><b>N. Raghav</b>, A. Gupta, M. Sahidullah, S. Das</span>
+            <span class="ve"><em>IEEE ICASSP 2025</em>, Hyderabad, India <a href="https://doi.org/10.1109/ICASSP49660.2025.10890194" target="_blank" rel="noopener">DOI</a></span>
+          </li>
+          <li>
+            <strong class="t">Exact Rotation Invariant Robust PCA</strong>
+            <span class="au">T. Jana, <b>N. Raghav</b>, A. Majumdar, M. Sahidullah</span>
+            <span class="ve"><em>IEEE ICASSP 2025</em>, Hyderabad, India <a href="https://doi.org/10.1109/ICASSP49660.2025.10889970" target="_blank" rel="noopener">DOI</a></span>
+          </li>
+          <li>
+            <strong class="t">Assessing the Robustness of Spectral Clustering for Deep Speaker Diarization</strong>
+            <span class="au"><b>N. Raghav</b>, M. Sahidullah</span>
+            <span class="ve"><em>IEEE INDICON 2024</em>, Kharagpur, India <a href="https://doi.org/10.1109/INDICON63790.2024.10958255" target="_blank" rel="noopener">DOI</a></span>
+          </li>
+        </ol>
+
+        <h3>Preprints and system descriptions <span class="n"></span></h3>
+        <ol class="pubs">
+          <li>
+            <strong class="t">DiariZen Explained: A Tutorial for the Open Source State-of-the-Art Speaker Diarization Pipeline</strong>
+            <span class="au"><b>N. Raghav</b></span>
+            <span class="ve">2026 <a href="https://arxiv.org/abs/2604.21507" target="_blank" rel="noopener">arXiv:2604.21507</a></span>
+          </li>
+          <li>
+            <strong class="t">TCG CREST System Description for the DISPLACE-M Challenge</strong>
+            <span class="au"><b>N. Raghav</b>, M. Sahidullah</span>
+            <span class="ve">2026 <a href="https://arxiv.org/abs/2603.02030" target="_blank" rel="noopener">arXiv:2603.02030</a></span>
+          </li>
+          <li>
+            <strong class="t">MK-SGC-SC: Multiple Kernel Guided Sparse Graph Construction in Spectral Clustering for Unsupervised Speaker Diarization</strong>
+            <span class="au"><b>N. Raghav</b>, A. Gupta, S. Das, M. Sahidullah</span>
+            <span class="ve">2026 <a href="https://arxiv.org/abs/2601.19946" target="_blank" rel="noopener">arXiv:2601.19946</a></span>
+          </li>
+          <li>
+            <strong class="t">The TCG CREST–RKMVERI Submission for the NCIIPC Startup India AI Grand Challenge</strong>
+            <span class="au"><b>N. Raghav</b>, A. Banerjee, J. Chakraborty, A. Gupta, S. Punyeshwarananda, M. Sahidullah</span>
+            <span class="ve">2025 <a href="https://arxiv.org/abs/2512.11009" target="_blank" rel="noopener">arXiv:2512.11009</a></span>
+          </li>
+          <li>
+            <strong class="t">TCG CREST System Description for the Second DISPLACE Challenge</strong>
+            <span class="au"><b>N. Raghav</b>, S. Saha, M. Sahidullah, S. Das</span>
+            <span class="ve">2024 <a href="https://arxiv.org/abs/2409.15356" target="_blank" rel="noopener">arXiv:2409.15356</a></span>
+          </li>
+        </ol>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ AI CHALLENGES ============================ -->
+  <section id="challenges">
+    <div class="wrap">
+      <h2>AI Challenges</h2>
+      <div class="body">
+        <!-- One bullet per challenge: name, organiser or role, result (year). Newest first. -->
+        <ul class="plain">
+          <li><strong>DISPLACE-M Challenge</strong>, organised by IISc Bangalore; ranked 5th of 11 teams on the Phase I leaderboard; <a href="https://arxiv.org/abs/2603.02030" target="_blank" rel="noopener">system description</a>&nbsp;(2026)</li>
+          <li><strong>NCIIPC Startup India AI Grand Challenge</strong>, team lead of a six-member team on multilingual speaker identification, diarization, transcription and translation; <a href="https://arxiv.org/abs/2512.11009" target="_blank" rel="noopener">system description</a>&nbsp;(2025)</li>
+          <li><strong>Second DISPLACE Challenge</strong>, TCG CREST team submission; <a href="https://arxiv.org/abs/2409.15356" target="_blank" rel="noopener">system description</a>&nbsp;(2024)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TEACHING & SERVICE ============================ -->
+  <section id="teaching">
+    <div class="wrap">
+      <h2>Teaching and service</h2>
+      <div class="body">
+        <ul class="plain">
+          <li>Teaching assistant for the Machine Learning (2025) and Deep Learning (2026) courses at TCG CREST</li>
+          <li>Mentor to student interns at TCG CREST</li>
+          <li>Reviewer for IEEE Transactions on Multimedia and for Computer Speech &amp; Language</li>
+          <li>Session chair at ICASSP 2025, in the Cybersecurity and Information Forensics track</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ OUTREACH ============================ -->
+  <section id="outreach">
+    <div class="wrap">
+      <h2>Outreach</h2>
+      <div class="body">
+        <ul class="plain">
+          <li><strong>Vigyan Bharat.</strong> A YouTube channel on mathematics that I started during the pandemic. Making it has shaped how I think about explaining ideas clearly. <a href="https://www.youtube.com/@VigyanBharatAI" target="_blank" rel="noopener">Watch on YouTube</a></li>
+          <li><strong>Speech Pitch podcast.</strong> Student volunteer with the Speech Pitch team at ISCA-SAC, as a host, script writer and in post-production (sound editing and mixing)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="body">
+        <p>Email: <a href="mailto:raghav.nikhil29@gmail.com">raghav.nikhil29@gmail.com</a></p>
+        <div class="links" style="margin-top:0.25rem">
+          <a href="https://drive.google.com/file/d/1f6TY5CWUwULyFHLIvMq1fwQjVlboNgd0/view?usp=sharing" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-file"/></svg>CV</a>
+          <a href="https://scholar.google.com/citations?user=0Fv67UMAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg>Scholar</a>
+          <a href="https://github.com/nikhilraghav29" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a>
+          <a href="https://www.linkedin.com/in/nikhilraghav-" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
+          <a href="https://www.youtube.com/@VigyanBharatAI" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-youtube"/></svg>YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nikhil Raghav. Last updated November 2026.</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+  // Writes the number of papers after each publication heading, e.g. "Conference papers (3)".
+  // It counts the <li> items in the list right after the heading, so the number stays right when you add a paper.
+  document.querySelectorAll('#publications h3').forEach(function (h) {
+    var list = h.nextElementSibling;
+    if (list) h.querySelector('.n').textContent = '(' + list.children.length + ')';
+  });
+</script>
+
+<script>
+  // Highlights the header link of whichever section is on screen.
+  // IntersectionObserver is the browser's built-in way of asking "is this element visible right now?",
+  // so the page does not have to recompute positions on every scroll event.
+  var navLinks = document.querySelectorAll('.nav a[href^="#"]');   // only links that point inside this page (not Talks)
+  var linkFor = {};
+  navLinks.forEach(function (a) { linkFor[a.getAttribute('href').slice(1)] = a; });
+
+  var watcher = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(function (a) { a.removeAttribute('aria-current'); });
+      var link = linkFor[entry.target.id];
+      if (link) link.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });   // a section counts as "current" when it crosses the upper part of the screen
+
+  document.querySelectorAll('main section[id]').forEach(function (s) { watcher.observe(s); });
+</script>
+
+<script>
+  // ---------- The waveform animation ----------
+  // One row of mirrored bars, like an audio waveform drawn as vertical lines.
+  // Each stretch of speech takes the colour of its speaker (blue = A, gold = B),
+  // so the row reads as a conversation in which two people take turns.
+  (function () {
+    var canvas = document.getElementById('diar');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+
+    // Speaker turns as [start, end, speaker], with time scaled to 0..1 across the canvas
+    var turns = [[0.02, 0.20, 'A'], [0.24, 0.44, 'B'], [0.49, 0.70, 'A'], [0.75, 0.97, 'B']];
+
+    var tokens = getComputedStyle(document.documentElement);
+    var colour = {
+      A:    tokens.getPropertyValue('--spk-a').trim(),
+      B:    tokens.getPropertyValue('--spk-b').trim(),
+      line: tokens.getPropertyValue('--muted').trim()
+    };
+
+    var GAP = 5;            // pixels between bars
+    var W = 0, H = 0;
+
+    // Match the canvas's pixel grid to the screen so the bars stay sharp on phones and Retina displays
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    // Which speaker (if any) is talking at position p, and how far into that turn we are (0..1)
+    function lookup(p) {
+      for (var i = 0; i < turns.length; i++) {
+        var t = turns[i];
+        if (p >= t[0] && p < t[1]) return { who: t[2], along: (p - t[0]) / (t[1] - t[0]) };
+      }
+      return null;
+    }
+
+    // A fixed "random" number per bar, so the waveform looks natural but never jumps around
+    function noise(i) { var x = Math.sin(i * 12.9898) * 43758.5453; return x - Math.floor(x); }
+
+    function drawFrame(ms) {
+      var t = ms / 1000, y = H / 2, maxH = H * 0.45;
+      ctx.clearRect(0, 0, W, H);
+
+      // dotted line through the middle: the silence between turns
+      ctx.globalAlpha = 0.45; ctx.strokeStyle = colour.line; ctx.lineWidth = 1;
+      ctx.setLineDash([2, 4]);
+      ctx.beginPath(); ctx.moveTo(0, y + 0.5); ctx.lineTo(W, y + 0.5); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+
+      ctx.lineWidth = 2; ctx.lineCap = 'round';
+      for (var i = 0, x = 1; x < W; i++, x += GAP) {
+        var s = lookup(x / W);
+        if (!s) continue;
+        var taper = Math.pow(Math.sin(Math.PI * s.along), 0.6);   // quiet at the start and end of a turn
+        var shape = 0.35 + 0.65 * noise(i);                        // uneven heights, like real speech
+        var shimmer = 0.8 + 0.2 * Math.sin(t * 3.2 + i * 0.9);     // the gentle movement
+        var h = maxH * taper * shape * shimmer;
+        ctx.strokeStyle = colour[s.who];
+        ctx.beginPath(); ctx.moveTo(x, y - h); ctx.lineTo(x, y + h); ctx.stroke();
+      }
+    }
+
+    // People who switch off animations in their system settings get one still frame
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function loop(ms) { drawFrame(ms); requestAnimationFrame(loop); }
+
+    resize();
+    window.addEventListener('resize', function () { resize(); if (still) drawFrame(0); });
+    if (still) drawFrame(0); else requestAnimationFrame(loop);
+  })();
+</script>
+
+
+</body>
+</html>
