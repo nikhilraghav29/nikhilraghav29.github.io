@@ -122,9 +122,9 @@
 
     /* ---------- Sections: one narrow centred column (about 690px wide), heading above content ---------- */
     main section > .wrap { max-width: 43rem; padding-inline: 1rem; }
-    main section { padding-bottom: clamp(2.25rem, 5vw, 3.25rem); scroll-margin-top: 3.5rem; }
+    main section { padding-bottom: clamp(1.5rem, 4vw, 2.25rem); scroll-margin-top: 3.5rem; }
     /* the thin line above each section: drawn inside the text column, so it is exactly as wide as the text */
-    main section > .wrap::before { content: ""; display: block; border-top: 1px solid var(--rule); margin-bottom: clamp(2.25rem, 5vw, 3.25rem); }
+    main section > .wrap::before { content: ""; display: block; border-top: 1px solid var(--rule); margin-bottom: clamp(1.5rem, 4vw, 2.25rem); }
     h2 { margin: 0 0 1rem; font-size: clamp(1.4rem, 4vw, 1.625rem); line-height: 1.3; font-weight: 700; letter-spacing: -0.025em; }   /* section titles: 26px, bold */
     h3 { margin: 2rem 0 0.75rem; font-family: var(--font); font-size: 1.02rem; font-weight: 700; color: var(--ink); letter-spacing: -0.035em; }   /* group titles: ~16px, bold */
     h3:first-child { margin-top: 0; }
