@@ -152,7 +152,8 @@
     .pubs > li + li { border-top: 1px solid var(--rule); }
     .pubs .t { display: block; line-height: 1.4; }
     .pubs .au, .pubs .ve { display: block; font-size: 0.96rem; color: var(--muted); line-height: 1.5; }
-    .pubs .au b { color: var(--ink); font-weight: 600; }
+    .pubs .au { color: var(--ink); }   /* all author names in dark text; mine is marked only by the underline */
+    .pubs .au b { color: var(--ink); font-weight: 400; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }   /* my name in author lists: underlined, not bold */
     .pubs .ve a { font-family: var(--font); font-size: 0.85rem; font-weight: 500; margin-left: 0.4rem; white-space: nowrap; }
 
     /* Plain bulleted lists inside sections */
