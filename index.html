@@ -179,6 +179,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
     }
+
   </style>
 </head>
 
@@ -433,6 +434,37 @@
     <a href="#top">Back to top</a>
   </div>
 </footer>
+
+<script>
+  // Email links: the click still opens the visitor's email app (Outlook, Gmail app on a phone, ...).
+  // It ALSO quietly copies the address, because on computers without an email app the click otherwise
+  // does nothing. The link's own text changes to "Copied" for two seconds, so there is no pop-up.
+  (function () {
+    function copy(text) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+      return new Promise(function (ok, fail) {
+        var t = document.createElement('textarea');
+        t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        try { document.execCommand('copy') ? ok() : fail(); } catch (e) { fail(); }
+        document.body.removeChild(t);
+      });
+    }
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+      // the last piece of text inside the link, e.g. "Email" or the address itself
+      var label = Array.prototype.filter.call(a.childNodes, function (n) { return n.nodeType === 3 && n.textContent.trim(); }).pop();
+      if (!label) return;
+      var original = label.textContent, timer;
+      a.addEventListener('click', function () {
+        copy(a.getAttribute('href').slice(7)).then(function () {
+          label.textContent = 'Copied';
+          clearTimeout(timer);
+          timer = setTimeout(function () { label.textContent = original; }, 2000);
+        }, function () {});
+      });
+    });
+  })();
+</script>
 
 <script>
   // Writes the number of papers after each publication heading, e.g. "Conference papers (3)".
