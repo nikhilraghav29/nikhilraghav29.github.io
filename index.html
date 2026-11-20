@@ -154,7 +154,16 @@
     .pubs .au, .pubs .ve { display: block; font-size: 0.96rem; color: var(--muted); line-height: 1.5; }
     .pubs .au { color: var(--ink); }   /* all author names in dark text; mine is marked only by the underline */
     .pubs .au b { color: var(--ink); font-weight: 400; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }   /* my name in author lists: underlined, not bold */
-    .pubs .ve a { font-family: var(--font); font-size: 0.85rem; font-weight: 500; margin-left: 0.4rem; white-space: nowrap; }
+    .pubs .ve a, .bib-btn { font-family: var(--font); font-size: 0.85rem; font-weight: 500; margin-left: 0.4rem; white-space: nowrap; }
+    /* "BibTeX" looks like the other links but is a button: it shows or hides the citation below the paper */
+    .bib-btn { padding: 0; border: 0; background: none; color: var(--spk-a); cursor: pointer; }
+    .bib-btn:hover { text-decoration: underline; }
+    .bib { position: relative; margin-top: 0.5rem; }
+    .bib pre { margin: 0; padding: 2.4rem 0.9rem 0.75rem; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--wash); border: 1px solid var(--rule); border-radius: 6px;
+               font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; line-height: 1.5; color: var(--ink); }
+    .bib-copy { position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.2rem 0.6rem; border: 1px solid var(--rule); border-radius: 4px;
+                background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 0.8rem; cursor: pointer; }
+    .bib-copy:hover { border-color: var(--muted); }
 
     /* Plain bulleted lists inside sections */
     .plain > li { position: relative; padding-left: 1.1rem; margin-bottom: 0.5rem; }
@@ -322,17 +331,35 @@
           <li>
             <strong class="t">Self-Tuning Spectral Clustering for Speaker Diarization</strong>
             <span class="au"><b>N. Raghav</b>, A. Gupta, M. Sahidullah, S. Das</span>
-            <span class="ve"><em>IEEE ICASSP 2025</em>, Hyderabad, India <a href="https://doi.org/10.1109/ICASSP49660.2025.10890194" target="_blank" rel="noopener">DOI</a> <a href="https://github.com/nikhilraghav29/SC-pNA" target="_blank" rel="noopener">Code</a></span>
+            <span class="ve"><em>IEEE ICASSP 2025</em>, Hyderabad, India <a href="https://arxiv.org/pdf/2410.00023" target="_blank" rel="noopener">PDF</a> <button type="button" class="bib-btn" aria-expanded="false">BibTeX</button> <a href="https://doi.org/10.1109/ICASSP49660.2025.10890194" target="_blank" rel="noopener">DOI</a> <a href="https://github.com/nikhilraghav29/SC-pNA" target="_blank" rel="noopener">Code</a></span>
+            <div class="bib" hidden><pre>@inproceedings{raghav2025self,
+  title = {Self-Tuning Spectral Clustering for Speaker Diarization},
+  author = {Raghav, Nikhil and Gupta, Avisek and Sahidullah, Md and Das, Swagatam},
+  year = {2025},
+  booktitle = {Proc. ICASSP},
+}</pre><button type="button" class="bib-copy">Copy</button></div>
           </li>
           <li>
             <strong class="t">Exact Rotation Invariant Robust PCA</strong>
             <span class="au">T. Jana, <b>N. Raghav</b>, A. Majumdar, M. Sahidullah</span>
-            <span class="ve"><em>IEEE ICASSP 2025</em>, Hyderabad, India <a href="https://doi.org/10.1109/ICASSP49660.2025.10889970" target="_blank" rel="noopener">DOI</a></span>
+            <span class="ve"><em>IEEE ICASSP 2025</em>, Hyderabad, India <button type="button" class="bib-btn" aria-expanded="false">BibTeX</button> <a href="https://doi.org/10.1109/ICASSP49660.2025.10889970" target="_blank" rel="noopener">DOI</a></span>
+            <div class="bib" hidden><pre>@inproceedings{tanmoy2025exact,
+  title = {Exact Rotation Invariant Robust PCA},
+  author = {Jana, Tanmoy and Raghav, Nikhil and Majumdar, Angshul and Sahidullah, Md},
+  year = {2025},
+  booktitle = {Proc. ICASSP},
+}</pre><button type="button" class="bib-copy">Copy</button></div>
           </li>
           <li>
             <strong class="t">Assessing the Robustness of Spectral Clustering for Deep Speaker Diarization</strong>
             <span class="au"><b>N. Raghav</b>, M. Sahidullah</span>
-            <span class="ve"><em>IEEE INDICON 2024</em>, Kharagpur, India <a href="https://doi.org/10.1109/INDICON63790.2024.10958255" target="_blank" rel="noopener">DOI</a></span>
+            <span class="ve"><em>IEEE INDICON 2024</em>, Kharagpur, India <a href="https://arxiv.org/pdf/2403.14286" target="_blank" rel="noopener">PDF</a> <button type="button" class="bib-btn" aria-expanded="false">BibTeX</button> <a href="https://doi.org/10.1109/INDICON63790.2024.10958255" target="_blank" rel="noopener">DOI</a></span>
+            <div class="bib" hidden><pre>@inproceedings{raghav2024assessing,
+  title = {Assessing the Robustness of Spectral Clustering for Deep Speaker Diarization},
+  author = {Raghav, Nikhil and Sahidullah, Md},
+  year = {2024},
+  booktitle = {Proc. INDICON},
+}</pre><button type="button" class="bib-copy">Copy</button></div>
           </li>
         </ol>
 
@@ -341,27 +368,27 @@
           <li>
             <strong class="t">DiariZen Explained: A Tutorial for the Open Source State-of-the-Art Speaker Diarization Pipeline</strong>
             <span class="au"><b>N. Raghav</b></span>
-            <span class="ve">2026 <a href="https://arxiv.org/abs/2604.21507" target="_blank" rel="noopener">arXiv:2604.21507</a> <a href="https://github.com/nikhilraghav29/diarizen-tutorial" target="_blank" rel="noopener">Code</a></span>
+            <span class="ve">2026 <a href="https://arxiv.org/abs/2604.21507" target="_blank" rel="noopener">arXiv:2604.21507</a> <a href="https://arxiv.org/pdf/2604.21507" target="_blank" rel="noopener">PDF</a> <a href="https://github.com/nikhilraghav29/diarizen-tutorial" target="_blank" rel="noopener">Code</a></span>
           </li>
           <li>
             <strong class="t">TCG CREST System Description for the DISPLACE-M Challenge</strong>
             <span class="au"><b>N. Raghav</b>, M. Sahidullah</span>
-            <span class="ve">2026 <a href="https://arxiv.org/abs/2603.02030" target="_blank" rel="noopener">arXiv:2603.02030</a></span>
+            <span class="ve">2026 <a href="https://arxiv.org/abs/2603.02030" target="_blank" rel="noopener">arXiv:2603.02030</a> <a href="https://arxiv.org/pdf/2603.02030" target="_blank" rel="noopener">PDF</a></span>
           </li>
           <li>
             <strong class="t">MK-SGC-SC: Multiple Kernel Guided Sparse Graph Construction in Spectral Clustering for Unsupervised Speaker Diarization</strong>
             <span class="au"><b>N. Raghav</b>, A. Gupta, S. Das, M. Sahidullah</span>
-            <span class="ve">2026 <a href="https://arxiv.org/abs/2601.19946" target="_blank" rel="noopener">arXiv:2601.19946</a> <a href="https://github.com/nikhilraghav29/MK-SGC-SC" target="_blank" rel="noopener">Code</a></span>
+            <span class="ve">2026 <a href="https://arxiv.org/abs/2601.19946" target="_blank" rel="noopener">arXiv:2601.19946</a> <a href="https://arxiv.org/pdf/2601.19946" target="_blank" rel="noopener">PDF</a> <a href="https://github.com/nikhilraghav29/MK-SGC-SC" target="_blank" rel="noopener">Code</a></span>
           </li>
           <li>
             <strong class="t">The TCG CREST–RKMVERI Submission for the NCIIPC Startup India AI Grand Challenge</strong>
             <span class="au"><b>N. Raghav</b>, A. Banerjee, J. Chakraborty, A. Gupta, S. Punyeshwarananda, M. Sahidullah</span>
-            <span class="ve">2025 <a href="https://arxiv.org/abs/2512.11009" target="_blank" rel="noopener">arXiv:2512.11009</a></span>
+            <span class="ve">2025 <a href="https://arxiv.org/abs/2512.11009" target="_blank" rel="noopener">arXiv:2512.11009</a> <a href="https://arxiv.org/pdf/2512.11009" target="_blank" rel="noopener">PDF</a></span>
           </li>
           <li>
             <strong class="t">TCG CREST System Description for the Second DISPLACE Challenge</strong>
             <span class="au"><b>N. Raghav</b>, S. Saha, M. Sahidullah, S. Das</span>
-            <span class="ve">2024 <a href="https://arxiv.org/abs/2409.15356" target="_blank" rel="noopener">arXiv:2409.15356</a></span>
+            <span class="ve">2024 <a href="https://arxiv.org/abs/2409.15356" target="_blank" rel="noopener">arXiv:2409.15356</a> <a href="https://arxiv.org/pdf/2409.15356" target="_blank" rel="noopener">PDF</a></span>
           </li>
         </ol>
 
@@ -496,6 +523,28 @@
       });
     });
   })();
+</script>
+
+<script>
+  // BibTeX: clicking "BibTeX" shows or hides the citation under that paper; "Copy" copies it.
+  document.querySelectorAll('.bib-btn').forEach(function (btn) {
+    var box = btn.closest('li').querySelector('.bib');
+    btn.addEventListener('click', function () {
+      box.hidden = !box.hidden;
+      btn.setAttribute('aria-expanded', String(!box.hidden));
+    });
+    box.querySelector('.bib-copy').addEventListener('click', function () {
+      var c = this, text = box.querySelector('pre').textContent;
+      var done = function () { c.textContent = 'Copied'; setTimeout(function () { c.textContent = 'Copy'; }, 2000); };
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done); }
+      else {
+        var r = document.createRange(); r.selectNodeContents(box.querySelector('pre'));
+        var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        sel.removeAllRanges();
+      }
+    });
+  });
 </script>
 
 <script>
